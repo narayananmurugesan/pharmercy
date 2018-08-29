@@ -1,3 +1,37 @@
-<p>
-  register works!
-</p>
+<div class="col-sm-9 col-md-7 col-lg-3 mx-auto my-10">
+  <div class="card card-signin">
+    <div class="card-body">
+      <h5 class="card-title">Sign In</h5>
+      <form class="form-signin">
+        <div class="form-label-group mb-lg-3">
+          <input type="text" id="firstname" class="form-control" name="firstname" placeholder="First Name" autofocus [(ngModel)]="user.firstname">
+        </div>
+
+        <div class="form-label-group mb-lg-3">
+          <input type="text" id="lastname" class="form-control" name="lastname" placeholder="Last Name" [(ngModel)]="user.lastname">
+        </div>
+
+        <div class="form-label-group mb-lg-3">
+          <input type="password" id="username" class="form-control" name="username" placeholder="Username" [(ngModel)]="user.username">
+        </div>
+
+        <div class="form-label-group mb-lg-3">
+          <input type="password" id="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password">
+        </div>
+
+        <div class="form-label-group mb-lg-3">
+          <select id="role" class="form-control" name="role" placeholder="Role" [(ngModel)]="user.role">
+              <option *ngFor="let roles of allRole" [value]="roles">{{roles}}</option>
+          </select>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+        (click)="login()">Register</button>
+        <div class="col-md-12 p-0">
+            <a class="float-left text-primary text-capitalize" routerLink="/core/login"><small>Login</small></a>
+            <a class="float-right text-primary text-capitalize"><small>Forgot Password ?</small></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

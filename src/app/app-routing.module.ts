@@ -14,7 +14,8 @@ const routes: Routes = [
     {
         path: 'core', component: CoreComponent,
         children: [
-            {path: 'login', component: LoginComponent}
+            {path: 'login', component: LoginComponent},
+            {path: 'register', component: RegisterComponent}
         ]
     },
     {
@@ -23,8 +24,6 @@ const routes: Routes = [
             {path: 'dashboard', component: DashboradComponent}
         ]
     },
-    {path: 'login',component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
     {path: "**", component: PagenotfoundComponent}
 ];
 @NgModule({

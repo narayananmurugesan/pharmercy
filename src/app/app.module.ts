@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule, routingComponent } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { NavComponent } from './view/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent,
     routingComponent
   ],
   imports: [

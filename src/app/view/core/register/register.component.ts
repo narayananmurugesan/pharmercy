@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  allRole = ['customer','supplier'];
+  
+  public user = {};
+
   constructor() { }
 
   ngOnInit() {
