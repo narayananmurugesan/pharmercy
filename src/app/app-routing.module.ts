@@ -6,8 +6,9 @@ import { LoginComponent } from './view/core/login/login.component';
 import { CoreComponent } from './view/core/core.component';
 import { PagenotfoundComponent } from './view/core/pagenotfound/pagenotfound.component';
 import { DashboradComponent } from './view/core/dashborad/dashborad.component';
-import { AppComponent } from './app.component';
-
+import { AppsComponent } from '../app/view/apps.component';
+import { CustomerComponent } from './view/customer/customer.component';
+import { SupplierComponent } from './view/supplier/supplier.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'core/login', pathMatch: 'full'},
@@ -19,9 +20,11 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'app', component: AppComponent,
+        path: 'app', component: AppsComponent,
         children: [
-            {path: 'dashboard', component: DashboradComponent}
+            {path: 'dashboard', component: DashboradComponent},
+            {path: 'supplier', component: SupplierComponent},
+            {path: 'customer', component: CustomerComponent}
         ]
     },
     {path: "**", component: PagenotfoundComponent}
@@ -34,8 +37,11 @@ const routes: Routes = [
 export class AppRoutingModule{}
 export const routingComponent = [
     CoreComponent,
+    AppsComponent,
     LoginComponent,
     RegisterComponent,
     DashboradComponent,
+    SupplierComponent,
+    CustomerComponent,
     PagenotfoundComponent
 ]
