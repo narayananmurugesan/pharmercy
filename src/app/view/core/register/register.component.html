@@ -2,31 +2,39 @@
   <div class="card card-signin">
     <div class="card-body">
       <h5 class="card-title">Sign In</h5>
-      <form class="form-signin">
+      <form class="form-signin" #registerForm="ngForm">
         <div class="form-label-group mb-lg-3">
-          <input type="text" id="firstname" class="form-control" name="firstname" placeholder="First Name" autofocus [(ngModel)]="user.firstname">
+          <input type="text" id="firstname" class="form-control" name="firstname" 
+          placeholder="First Name *" autofocus [(ngModel)]="user.firstname" #firstname="ngModel" required>
+          <span [hidden]="firstname.valid || firstname.pristine" class="text-danger">First Name is required</span>
         </div>
 
         <div class="form-label-group mb-lg-3">
-          <input type="text" id="lastname" class="form-control" name="lastname" placeholder="Last Name" [(ngModel)]="user.lastname">
+          <input type="text" id="lastname" class="form-control" name="lastname" 
+          placeholder="Last Name *" [(ngModel)]="user.lastname" #lastname="ngModel" required>
+          <span [hidden]="lastname.valid || lastname.pristine" class="text-danger">Last Name is required</span>
+        </div> 
+
+        <div class="form-label-group mb-lg-3">
+          <input type="password" id="username" class="form-control" name="username" 
+          placeholder="Username *" [(ngModel)]="user.username" #username="ngModel" required>
+          <span [hidden]="username.valid || username.pristine">Username is required</span>
         </div>
 
         <div class="form-label-group mb-lg-3">
-          <input type="password" id="username" class="form-control" name="username" placeholder="Username" [(ngModel)]="user.username">
+          <input type="password" id="password" class="form-control" name="password" 
+          placeholder="Password *" [(ngModel)]="user.password" #password="ngModel" required>
+          <span [hidden]="password.valid || password.pristine">Password is required</span>
         </div>
 
         <div class="form-label-group mb-lg-3">
-          <input type="password" id="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password">
-        </div>
-
-        <div class="form-label-group mb-lg-3">
-          <select id="role" class="form-control" name="role" placeholder="Role" [(ngModel)]="user.role">
+          <select id="role" class="form-control" name="role" placeholder="Role" [(ngModel)]="user.role" required>
               <option *ngFor="let roles of allRole" [value]="roles">{{roles}}</option>
           </select>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
-        (click)="login()">Register</button>
+         [disabled]="!registerForm.form.valid" [ngClass]="{'btn-primary': registerForm.form.valid, 'btn-info': !registerForm.form.valid}">Register</button>
         <div class="col-md-12 p-0">
             <a class="float-left text-primary text-capitalize" routerLink="/core/login"><small>Login</small></a>
             <a class="float-right text-primary text-capitalize"><small>Forgot Password ?</small></a>

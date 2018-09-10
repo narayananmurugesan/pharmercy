@@ -144,7 +144,11 @@ h2 {
     background-color: #255988!important;
     box-shadow: 0 1px 3px 3px rgba(18, 32, 66, 0.25);
   }
+  #sideNav .navbar-brand .img-profile{
+    background: #fff;
+  }
   body {
-    background: #343a40 !important;
+    /* background: #343a40 !important; */
+    background: url('assets/cover.png');
   }
   
